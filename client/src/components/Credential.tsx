@@ -8,8 +8,9 @@ export interface Props {}
 
 export const Credential: React.FC<Props> = () => {
   const [info, setInfo] = useState({
-    name: "",
-    age: "",
+    firstName: "",
+    lastName: "",
+    age: 0,
   });
   const [credentialId, setCredentialId] = useState("");
   const [state, setState] = useState("");
@@ -27,7 +28,7 @@ export const Credential: React.FC<Props> = () => {
   const onButtonClick = async (e: any) => {
     e.preventDefault();
     if (credentialId === "") {
-      const cred = await issueCredential(con, credDef, info.name, info.age);
+      const cred = await issueCredential(con, credDef, info.firstName, info.lastName, info.age);
       setState(cred.data.state);
       setCredentialId(cred.data.id);
     }
@@ -58,16 +59,27 @@ export const Credential: React.FC<Props> = () => {
           </div>
           <div className="md:flex md:items-center mb-6">
             <div className="md:w-2/3">
-              <label className="block text-gray-500 font-bold md:text-left" htmlFor="inline-full-name">
-                Full Name
+              <label className="block text-gray-500 font-bold md:text-left" htmlFor="inline-first-name">
+                First Name
               </label>
               <input
                 className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-100"
-                id="inline-full-name"
+                id="inline-first-name"
                 type="text"
-                name="name"
+                name="firstName"
                 onChange={handleChange}
-                value={info.name}
+                value={info.firstName}
+              />
+              <label className="block text-gray-500 font-bold md:text-left" htmlFor="inline-last-name">
+                Last Name
+              </label>
+              <input
+                  className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-100"
+                  id="inline-last-name"
+                  type="text"
+                  name="lastName"
+                  onChange={handleChange}
+                  value={info.lastName}
               />
               <label className="block text-gray-500 font-bold md:text-left" htmlFor="inline-age">
                 Age
@@ -75,7 +87,7 @@ export const Credential: React.FC<Props> = () => {
               <input
                 className="mt-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-100"
                 id="inline-age"
-                type="text"
+                type="number"
                 name="age"
                 onChange={handleChange}
                 value={info.age}
@@ -85,9 +97,9 @@ export const Credential: React.FC<Props> = () => {
           <div className="md:flex">
             <button
               className={`bg-blue-500 text-white font-bold py-2 px-4 rounded ${
-                info.name === "" || info.age === "" ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
+                info.firstName === "" || info.lastName === "" || info.age < 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
               }`}
-              disabled={info.name === "" || info.age === ""}
+              disabled={info.firstName === "" || info.lastName === "" || info.age < 0 }
               onClick={onButtonClick}
             >
               Send it
