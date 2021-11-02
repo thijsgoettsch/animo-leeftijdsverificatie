@@ -58,11 +58,11 @@ export const CompletedModal: React.FC<Props> = (props: Props) => {
                       Proof request complete!
                     </Dialog.Title>
                     <div className="mt-2">
-                      <p className="text-sm text-gray-500">Your title has been shared!</p>
+                      <p className="text-sm text-gray-500">Your age has been shared!</p>
                     </div>
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
-                        <strong>Title: </strong>
+                        <strong>Age: </strong>
                         {props.proof.additionalProp1.raw}
                       </p>
                     </div>

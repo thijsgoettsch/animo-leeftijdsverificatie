@@ -9,7 +9,7 @@ export interface Props {}
 export const Credential: React.FC<Props> = () => {
   const [info, setInfo] = useState({
     name: "",
-    title: "",
+    age: "",
   });
   const [credentialId, setCredentialId] = useState("");
   const [state, setState] = useState("");
@@ -27,7 +27,7 @@ export const Credential: React.FC<Props> = () => {
   const onButtonClick = async (e: any) => {
     e.preventDefault();
     if (credentialId === "") {
-      const cred = await issueCredential(con, credDef, info.name, info.title);
+      const cred = await issueCredential(con, credDef, info.name, info.age);
       setState(cred.data.state);
       setCredentialId(cred.data.id);
     }
@@ -69,25 +69,25 @@ export const Credential: React.FC<Props> = () => {
                 onChange={handleChange}
                 value={info.name}
               />
-              <label className="block text-gray-500 font-bold md:text-left" htmlFor="inline-title">
-                Title
+              <label className="block text-gray-500 font-bold md:text-left" htmlFor="inline-age">
+                Age
               </label>
               <input
                 className="mt-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-100"
-                id="inline-title"
+                id="inline-age"
                 type="text"
-                name="title"
+                name="age"
                 onChange={handleChange}
-                value={info.title}
+                value={info.age}
               />
             </div>
           </div>
           <div className="md:flex">
             <button
               className={`bg-blue-500 text-white font-bold py-2 px-4 rounded ${
-                info.name === "" || info.title === "" ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
+                info.name === "" || info.age === "" ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
               }`}
-              disabled={info.name === "" || info.title === ""}
+              disabled={info.name === "" || info.age === ""}
               onClick={onButtonClick}
             >
               Send it

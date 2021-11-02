@@ -14,13 +14,13 @@ export const createProofRequest = (connectionId: string, credDefId: string): Pro
               cred_def_id: credDefId,
             },
           ],
-          name: "title",
+          name: "age",
         },
       },
       version: "1.0.0",
-      name: "Animo Title Request",
+      name: "Animo Age Request",
     },
-    comment: "Animo Solutions wants to know your Animo Title",
+    comment: "Animo Solutions wants to know your age",
   });
 };
 
