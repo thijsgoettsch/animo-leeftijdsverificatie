@@ -9,7 +9,7 @@ export const issueCredential = async (
   credDefId: string,
   firstName: string,
   lastName: string,
-  age: string
+  dateOfBirth: string
 ): Promise<AxiosResponse> => {
   return api.post(`/credentials/${connectionId}/offer-credential`, {
     comment: "Here is your Animo Employee Card",
@@ -26,8 +26,8 @@ export const issueCredential = async (
           value: lastName,
         },
         {
-          name: "age",
-          value: age.replaceAll('-', ''),
+          name: "dateOfBirth",
+          value: dateOfBirth.replaceAll('-', ''),
         },
       ],
     },
@@ -40,9 +40,9 @@ export const getCredentialById = (credentialId: string): Promise<AxiosResponse> 
 
 export const createCredentialDefinition = async () => {
   const data = await api.post(`/credential-defintions/`, {
-    tag: "Age-Verification",
+    tag: "Date Of Birth Verification",
     supportRevocation: false,
-    schemaId: "54mekdZtq17YwSifXaJE1T:2:Age-Verification:1.0.0",
+    schemaId: "54mekdZtq17YwSifXaJE1T:2:Date Of Birth Verification:1.0.0",
   });
 
   return data.data.id;
