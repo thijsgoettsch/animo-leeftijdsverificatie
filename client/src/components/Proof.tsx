@@ -7,11 +7,13 @@ import { createProofRequest, getProofById } from "../api/ProofApi";
 
 // components
 import { CompletedModal } from "./CompletedModal";
+import {FailedModal} from "./FailedModal";
 
 export interface Props {}
 
 export const Proof: React.FC<Props> = () => {
-  const [open, setOpen] = useState(true);
+  const [successOpen, setSuccessOpen] = useState(true);
+  const [failOpen, setFailOpen]= useState(true)
   const [proof, setProof] = useState();
   const [state, setState] = useState("sending...");
   const [proofId, setProofId] = useState();
@@ -23,6 +25,7 @@ export const Proof: React.FC<Props> = () => {
       const resp = await createProofRequest(con, credDef);
       setState(resp.data.state);
       setProofId(resp.data.id);
+
     };
     requestProof();
   }, [con, credDef]);
@@ -33,9 +36,18 @@ export const Proof: React.FC<Props> = () => {
         const con = await getProofById(proofId);
         if (con.data.state === "presentation-received") {
           clearInterval(timer);
-          var proof = getProofFromBase64(con.data.presentationMessage["presentations~attach"][0].data.base64);
+          let proof = getProofFromBase64(con.data.presentationMessage["presentations~attach"][0].data.base64);
           setProof(proof);
-          setOpen(true);
+          console.log(proof);
+
+          //TODO Change to true false when predicates work
+          if(proof.additionalProp1.raw >= 18){
+            setSuccessOpen(true);
+            setFailOpen(false)
+          }else{
+            setSuccessOpen(false);
+            setFailOpen(true);
+          }
         }
         setState(con.data.state);
       }
@@ -63,10 +75,11 @@ export const Proof: React.FC<Props> = () => {
           </p>
         </form>
       </div>
-      {state === "presentation-received" ? (
+      {(state === "presentation-received" && successOpen)? (
         <Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} />
       ) : null}
-      {proof && <CompletedModal open={open} setOpen={setOpen} proof={proof} />}
+      {proof && <CompletedModal open={successOpen} setOpen={setSuccessOpen} proof={proof} />}
+      {proof && <FailedModal open={failOpen} setOpen={setFailOpen} proof={proof} />}
     </div>
   );
 };
