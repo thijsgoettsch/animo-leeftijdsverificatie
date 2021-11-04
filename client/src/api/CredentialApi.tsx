@@ -9,7 +9,7 @@ export const issueCredential = async (
   credDefId: string,
   firstName: string,
   lastName: string,
-  age: number
+  age: string
 ): Promise<AxiosResponse> => {
   return api.post(`/credentials/${connectionId}/offer-credential`, {
     comment: "Here is your Animo Employee Card",
@@ -27,7 +27,7 @@ export const issueCredential = async (
         },
         {
           name: "age",
-          value: age,
+          value: age.replaceAll('-', ''),
         },
       ],
     },

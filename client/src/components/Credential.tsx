@@ -10,7 +10,7 @@ export const Credential: React.FC<Props> = () => {
   const [info, setInfo] = useState({
     firstName: "",
     lastName: "",
-    age: 0,
+    age: "",
   });
   const [credentialId, setCredentialId] = useState("");
   const [state, setState] = useState("");
@@ -82,12 +82,12 @@ export const Credential: React.FC<Props> = () => {
                   value={info.lastName}
               />
               <label className="block text-gray-500 font-bold md:text-left" htmlFor="inline-age">
-                Age
+                Date of Birth
               </label>
               <input
                 className="mt-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-100"
                 id="inline-age"
-                type="number"
+                type="date"
                 name="age"
                 onChange={handleChange}
                 value={info.age}
@@ -97,9 +97,9 @@ export const Credential: React.FC<Props> = () => {
           <div className="md:flex">
             <button
               className={`bg-blue-500 text-white font-bold py-2 px-4 rounded ${
-                info.firstName === "" || info.lastName === "" || info.age < 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
+                info.firstName === "" || info.lastName === "" || info.age === "" ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
               }`}
-              disabled={info.firstName === "" || info.lastName === "" || info.age < 0 }
+              disabled={info.firstName === "" || info.lastName === "" || info.age === "" }
               onClick={onButtonClick}
             >
               Send it

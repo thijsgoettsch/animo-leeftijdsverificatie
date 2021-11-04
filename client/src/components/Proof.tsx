@@ -7,13 +7,11 @@ import { createProofRequest, getProofById } from "../api/ProofApi";
 
 // components
 import { CompletedModal } from "./CompletedModal";
-import {FailedModal} from "./FailedModal";
 
 export interface Props {}
 
 export const Proof: React.FC<Props> = () => {
-  const [successOpen, setSuccessOpen] = useState(true);
-  const [failOpen, setFailOpen]= useState(true)
+  const [open, setOpen] = useState(false);
   const [proof, setProof] = useState();
   const [state, setState] = useState("sending...");
   const [proofId, setProofId] = useState();
@@ -38,16 +36,7 @@ export const Proof: React.FC<Props> = () => {
           clearInterval(timer);
           let proof = getProofFromBase64(con.data.presentationMessage["presentations~attach"][0].data.base64);
           setProof(proof);
-          console.log(proof);
-
-          //TODO Change to true false when predicates work
-          if(proof.additionalProp1.raw >= 18){
-            setSuccessOpen(true);
-            setFailOpen(false)
-          }else{
-            setSuccessOpen(false);
-            setFailOpen(true);
-          }
+          setOpen(true)
         }
         setState(con.data.state);
       }
@@ -75,11 +64,10 @@ export const Proof: React.FC<Props> = () => {
           </p>
         </form>
       </div>
-      {(state === "presentation-received" && successOpen)? (
+      {state === "presentation-received"? (
         <Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} />
       ) : null}
-      {proof && <CompletedModal open={successOpen} setOpen={setSuccessOpen} proof={proof} />}
-      {proof && <FailedModal open={failOpen} setOpen={setFailOpen} proof={proof} />}
+      {proof && <CompletedModal open={open} setOpen={setOpen} proof={proof} />}
     </div>
   );
 };
