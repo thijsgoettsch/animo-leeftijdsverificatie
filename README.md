@@ -35,7 +35,7 @@ docker-compose up -d
 
 That's it! The demo will be exposed on http://localhost:3000. Enjoy ✨
 
-#Installatie Handleiding:
+# Installatie Handleiding:
 
 Voor de Leeftijdsverificatie web app is docker een vereiste. 
 <br>
