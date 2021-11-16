@@ -4,6 +4,6 @@ function Start() {
     return (
         <Modal />
     );
-};
+}
 
 export default Start;

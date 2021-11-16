@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios, {AxiosResponse} from "axios";
 
 const baseUrl = process.env.REACT_APP_HOST_BACKEND ?? "http://localhost:5000";
 

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Confetti from "react-confetti";
-import { getProofFromBase64 } from "../utils/ProofUtils";
+import {getProofFromBase64} from "../utils/ProofUtils";
 
 // api
-import { createProofRequest, getProofById } from "../api/ProofApi";
+import {createProofRequest, getProofById} from "../api/ProofApi";
 
 // components
-import { CompletedModal } from "./CompletedModal";
+import {CompletedModal} from "./CompletedModal";
 
 export interface Props {}
 

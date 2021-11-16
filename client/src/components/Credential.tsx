@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 import Confetti from "react-confetti";
 
-import { issueCredential, getCredentialById } from "../api/CredentialApi";
+import {getCredentialById, issueCredential} from "../api/CredentialApi";
 
 export interface Props {}
 

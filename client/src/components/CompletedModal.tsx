@@ -1,8 +1,8 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useRef } from "react";
-import { Link } from "react-router-dom";
-import { Dialog, Transition } from "@headlessui/react";
-import { CakeIcon } from "@heroicons/react/outline";
+import {Fragment, useRef} from "react";
+import {Link} from "react-router-dom";
+import {Dialog, Transition} from "@headlessui/react";
+import {CakeIcon} from "@heroicons/react/outline";
 
 export interface Props {
   open: boolean;

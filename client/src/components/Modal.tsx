@@ -1,12 +1,13 @@
 /* This example requires Tailwind CSS v2.0+ */
 import {Fragment, useRef, useState} from "react";
-import {Link, Route, Switch, useLocation} from "react-router-dom";
-import { Dialog, Transition } from "@headlessui/react";
-import { CakeIcon } from "@heroicons/react/outline";
+import {Route, Switch, useLocation} from "react-router-dom";
+import {Dialog, Transition} from "@headlessui/react";
+import {CakeIcon} from "@heroicons/react/outline";
+
 import {Home} from "./Home";
 import {Invitation} from "./Invitation";
 import {Proof} from "./Proof";
-import { Credential } from "./Credential";
+import {Credential} from "./Credential";
 
 function Modal() {
     const cancelButtonRef = useRef(null);
@@ -57,6 +58,12 @@ function Modal() {
                                         <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
                                             Leeftijdsverificatie!
                                         </Dialog.Title>
+
+                                        <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-right">
+                                            <button type="button" className="close" data-dismiss="modal" aria-label="Close" >
+                                                <span aria-hidden="true" onClick={() => setOpen(false)}>&times;</span>
+                                            </button>
+                                        </div>
                                         <div className="mt-2">
                                             <p className="text-sm text-gray-500">
                                                 <div>
@@ -79,18 +86,6 @@ function Modal() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                                <Link to="/">
-                                    <button
-                                        type="button"
-                                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm"
-                                        onClick={() => setOpen(true)}
-                                        ref={cancelButtonRef}
-                                    >
-                                        Return to home
-                                    </button>
-                                </Link>
                             </div>
                         </div>
                     </Transition.Child>
