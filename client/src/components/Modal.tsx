@@ -49,17 +49,19 @@ function Modal() {
                     >
                         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all  md:w-auto h-auto">
                             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                <div className="sm:flex sm:items-start">
-                                    <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                        <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
-                                            Proof-verification
-                                        </Dialog.Title>
+                                <div className="border-b-2 rounded-tl-lg rounded-tr-lg p-2 flex">
+                                    <Dialog.Title className="flex-1 text-center text-lg leading-6 font-medium text-gray-900">
+                                        Proof-verification
+                                    </Dialog.Title>
+                                    <div className="rounded-full h-3 w-3 circle bg-green">
+                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close" >
+                                            <span aria-hidden="true" onClick={() => setOpen(false)}>&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
 
-                                        <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-right">
-                                            <button type="button" className="close" data-dismiss="modal" aria-label="Close" >
-                                                <span aria-hidden="true" onClick={() => setOpen(false)}>&times;</span>
-                                            </button>
-                                        </div>
+                                <div className="sm:flex sm:items-start">
+                                    <div className="mt-3 text-center sm:mt-0 sm:ml-4">
                                         <div className="mt-2">
                                             <p className="text-sm text-gray-500">
                                                 <div>
@@ -89,5 +91,5 @@ function Modal() {
             </Dialog>
         </Transition.Root>
     );
-};
+}
 export default Modal;

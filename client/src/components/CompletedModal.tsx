@@ -76,7 +76,7 @@ export const CompletedModal: React.FC<Props> = (props: Props) => {
                     onClick={() => props.setOpen(false)}
                     ref={cancelButtonRef}
                   >
-                    Return to home
+                    Close
                   </button>
                 </Link>
               </div>

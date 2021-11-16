@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 
 import {Link} from "react-router-dom";
 
-import logo from "../assets/logo-nix18.png";
+import logo from "../assets/animo-logo.jpeg";
 
 import {getAgentInfo} from "../api/AgentApi";
 import {createCredentialDefinition} from "../api/CredentialApi";
@@ -47,7 +47,7 @@ export const Home: React.FC<Props> = () => {
 
   return (
     <div className="flex flex-col justify-center">
-      <img className="h-48 m-4 " src={logo} alt="nix-logo"  />
+      <img className="h-48 m-4 " src={logo} alt="animo-logo"  />
       <div className="flex p-6 justify-center" >
         <Link to={`/invitation`}>
           <button
