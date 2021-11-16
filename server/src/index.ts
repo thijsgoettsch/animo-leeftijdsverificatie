@@ -1,11 +1,11 @@
 import {
-    Agent,
-    AutoAcceptCredential,
-    ConnectionEventTypes,
-    ConnectionInvitationMessage,
-    HttpOutboundTransport,
-    InitConfig,
-    LogLevel,
+  Agent,
+  AutoAcceptCredential,
+  ConnectionEventTypes,
+  ConnectionInvitationMessage,
+  HttpOutboundTransport,
+  InitConfig,
+  LogLevel,
 } from "@aries-framework/core";
 import {BCOVRIN_TEST_GENESIS} from "./utils";
 // @ts-ignore
