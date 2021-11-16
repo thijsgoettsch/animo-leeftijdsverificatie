@@ -1,9 +1,9 @@
-import Start from "./components/Start";
+import Modal from "./components/Modal";
 
 function App() {
 
   return (
-      <Start />
+      <Modal />
   );
 }
 
