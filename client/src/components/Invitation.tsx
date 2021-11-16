@@ -47,7 +47,7 @@ export const Invitation: React.FC<Props> = () => {
   }, [connectionId]);
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center h-screen m-auto">
+    <div className="flex flex-col md:flex-row items-center justify-center m-auto">
       <div className="flex flex-col md:flex-row p-6">
         <div className="flex">{invitation && <QRCode className="m-auto my-4 md:m-auto" value={invitation} />}</div>
         <form className="flex-auto pl-6">

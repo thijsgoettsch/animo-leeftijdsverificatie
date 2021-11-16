@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 
 import {Link} from "react-router-dom";
 
-import logo from "../assets/animo-logo.jpeg";
+import logo from "../assets/logo-nix18.png";
 
 import {getAgentInfo} from "../api/AgentApi";
 import {createCredentialDefinition} from "../api/CredentialApi";
@@ -46,9 +46,9 @@ export const Home: React.FC<Props> = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <img className="h-48 m-4" src={logo} alt="animo-logo" />
-      <div className="flex p-6">
+    <div className="flex flex-col justify-center">
+      <img className="h-48 m-4 " src={logo} alt="nix-logo"  />
+      <div className="flex p-6 justify-center" >
         <Link to={`/invitation`}>
           <button
             disabled={!status}
@@ -62,7 +62,9 @@ export const Home: React.FC<Props> = () => {
           </button>
         </Link>
       </div>
-      <p className="text-sm text-gray-500 mx-2 py-2">{description}</p>
+      <div className="flex flex-col">
+        <p className="text-center text-sm text-gray-500 mx-4 py-2">{description}</p>
+      </div>
     </div>
   );
 };

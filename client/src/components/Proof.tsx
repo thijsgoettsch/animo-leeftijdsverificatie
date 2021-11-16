@@ -49,7 +49,7 @@ export const Proof: React.FC<Props> = () => {
   }, [proofId]);
 
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center">
       <div className="flex p-6">
         <form className="flex-auto pl-6">
           <div className="flex flex-wrap items-baseline">
