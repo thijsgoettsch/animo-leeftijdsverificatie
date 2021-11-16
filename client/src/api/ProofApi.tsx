@@ -17,8 +17,8 @@ export const createProofRequest = (connectionId: string, credDefId: string): Pro
     proofRequest: {
       requestedAttributes: {},
       requestedPredicates: {
-        "Age": {
-          name: "age",
+        "Date Of Birth": {
+          name: "dateOfBirth",
           p_type: "<=",
           p_value: minAgeDate,
           restrictions: [{
@@ -27,9 +27,9 @@ export const createProofRequest = (connectionId: string, credDefId: string): Pro
         },
       },
       version: "1.0.0",
-      name: "Animo Age Request",
+      name: "Animo Older Then Eighteen Request",
     },
-    comment: "Animo Solutions wants to know your age",
+    comment: "Animo Solutions wants to know if you are old enough",
   });
 };
 
