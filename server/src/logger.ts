@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import type {ILogObject} from 'tslog'
-import {Logger} from 'tslog'
+import type { ILogObject } from 'tslog'
 
-import {BaseLogger, LogLevel} from '@aries-framework/core'
-import {appendFileSync} from 'fs'
+import { LogLevel, BaseLogger } from '@aries-framework/core'
+import { appendFileSync } from 'fs'
+import { Logger } from 'tslog'
 
 function logToTransport(logObject: ILogObject) {
   appendFileSync('logs.txt', JSON.stringify(logObject) + '\n')

@@ -7,13 +7,13 @@ import {
   InitConfig,
   LogLevel,
 } from "@aries-framework/core";
-import {BCOVRIN_TEST_GENESIS} from "./utils";
+import { BCOVRIN_TEST_GENESIS } from "./utils";
 // @ts-ignore
-import {agentDependencies, HttpInboundTransport} from "@aries-framework/node";
-import {startServer} from "@aries-framework/rest";
-import {TestLogger} from "./logger";
+import { agentDependencies, HttpInboundTransport } from "@aries-framework/node";
+import { startServer } from "@aries-framework/rest";
+import { TestLogger } from "./logger";
 
-import {connect} from "ngrok";
+import { connect } from "ngrok";
 
 const run = async () => {
   const port = process.env.AGENT_PORT ?? 5001;
